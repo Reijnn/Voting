@@ -13,6 +13,10 @@ contract Voting {
     return votesReceived[candidate];
   }
 
+  function getCandidates() returns (bytes32[]) {
+    return candidateList;
+  }
+
   function voteForCandidate(bytes32 candidate) {
     assert(validCandidate(candidate));
     votesReceived[candidate] += 1;

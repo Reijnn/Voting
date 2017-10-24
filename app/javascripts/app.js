@@ -58,12 +58,10 @@ $( document ).ready(function() {
 
   Voting.setProvider(web3.currentProvider);
   let candidateNames = Object.keys(candidates);
-  console.log(candidateNames)
   for (var i = 0; i < candidateNames.length; i++) {
     let name = candidateNames[i];
     Voting.deployed().then(function(contractInstance) {
       contractInstance.totalVotesFor.call(name).then(function(v) {
-        console.log(v)
         $("#" + candidates[name]).html(v.toString());
       });
     })
